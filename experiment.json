@@ -1,0 +1,62 @@
+{
+  "name": "water-sim-smoke-test",
+  "topologies": [
+    {
+      "datacenters": [
+        {
+          "name": "DC1",
+          "clusters": [
+            {
+              "name": "C01",
+              "hosts": [
+                {
+                  "name": "H01",
+                  "count": 4,
+                  "cpu": { "coreCount": 16, "coreSpeed": "2.1 GHz" },
+                  "memory": { "size": "64 GiB" },
+                  "cpuPowerModel": { "type": "linear", "idlePower": "32 W", "maxPower": "180 W" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workloads": [
+    {
+      "type": "inline",
+      "tasks": [
+        {
+          "id": 0,
+          "submissionTime": "0 minutes",
+          "duration": "30 minutes",
+          "cpuCoreCount": 4,
+          "cpuCapacity": "8.4 GHz",
+          "memory": "4 GiB",
+          "fragments": [
+            { "duration": "30 minutes", "cpuUsage": "8.4 GHz" }
+          ]
+        },
+        {
+          "id": 1,
+          "submissionTime": "15 minutes",
+          "duration": "45 minutes",
+          "cpuCoreCount": 8,
+          "cpuCapacity": "16.8 GHz",
+          "memory": "8 GiB",
+          "fragments": [
+            { "duration": "30 minutes", "cpuUsage": "16.8 GHz" },
+            { "duration": "15 minutes", "cpuUsage": "8.4 GHz" }
+          ]
+        }
+      ]
+    }
+  ],
+  "allocationPolicies": [
+    { "type": "prefab", "prefabName": "Mem" }
+  ],
+  "exportModels": [
+    { "exportInterval": "5 minutes" }
+  ]
+}
