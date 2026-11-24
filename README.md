@@ -43,3 +43,9 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) for more details.
 ## License
 
 OpenDC is distributed under the MIT license. See [LICENSE.txt](/LICENSE.txt).
+
+## Running locally
+``opendc --strict validate experiment.json
+opendc run experiment.json -o output ``
+``python3 python3 test_water_pipeline.py``
+``python3 water_pipeline.py``
